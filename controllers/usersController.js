@@ -38,7 +38,7 @@ class UsersController {
             return res.json({token});
 
         } catch(err) {
-            ApiError.badRequest('Ошибка запроса...')
+            ApiError.badRequest('Ошибка запроса...register')
         }
     }
 
@@ -60,7 +60,7 @@ class UsersController {
             return res.json({token});
 
         } catch(err) {
-            ApiError.badRequest('Ошибка запроса...')
+            ApiError.badRequest('Ошибка запроса...login')
         }
     }
 
@@ -69,7 +69,7 @@ class UsersController {
             const token = generateJwt(req.user.id, req.user.username);
             return res.json({token});
         } catch(err) {
-            ApiError.badRequest('Ошибка запроса...')
+            ApiError.badRequest('Ошибка запроса...check')
         }        
     }
 };
