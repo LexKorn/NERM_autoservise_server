@@ -7,10 +7,10 @@ class AutosController {
             const {id} = req.user;
             let {year, vin, stateNumber, owner, phone, stampId, modelId} = req.body;
 
-            const candicate = await Auto.findOne({where: {userId: id, stateNumber}});
-            if (candicate) {
-                return next(ApiError.badRequest('Автомобиль с таким гос.номером уже существует!'));
-            } 
+            // const candicate = await Auto.findOne({where: {userId: id, stateNumber}});
+            // if (candicate) {
+            //     return next(ApiError.badRequest('Автомобиль с таким гос.номером уже существует!'));
+            // } 
 
             const auto = await Auto.create({year, vin, stateNumber, owner, phone, stampId, modelId, userId: id});
             return res.json(auto);
