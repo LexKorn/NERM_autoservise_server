@@ -7,6 +7,7 @@ const autosRouter = require('./autosRouter');
 const modelsRouter = require('./modelsRouter');
 const ordersRouter = require('./ordersRouter');
 const stampsRouter = require('./stampsRouter');
+const testRouter = require('./testRouter');
 const usersRouter = require('./usersRouter');
 
 router.use('/activities', activitiesRouter);
@@ -15,6 +16,7 @@ router.use('/autos', autosRouter);
 router.use('/models', modelsRouter);
 router.use('/orders', ordersRouter);
 router.use('/stamps', stampsRouter);
+router.use('/test', testRouter);
 router.use('/users', usersRouter);
 
 module.exports = router;

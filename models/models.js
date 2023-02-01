@@ -26,6 +26,13 @@ const Stamp = sequelize.define('stamp', {
     stamp: {type: DataTypes.STRING},
 });
 
+const Test = sequelize.define('test', {
+    id: {type: DataTypes.INTEGER, primaryKey: true, autoIncrement: true},
+    name: {type: DataTypes.STRING},
+    phone: {type: DataTypes.STRING},
+    country: {type: DataTypes.STRING}
+});
+
 const Order = sequelize.define('order', {
     id: {type: DataTypes.INTEGER, primaryKey: true, autoIncrement: true},
     opened: {type: DataTypes.STRING},
@@ -58,6 +65,9 @@ Model.belongsTo(User);
 User.hasMany(Stamp);
 Stamp.belongsTo(User);
 
+User.hasMany(Test);
+Test.belongsTo(User);
+
 User.hasMany(Order);
 Order.belongsTo(User);
 
@@ -88,6 +98,7 @@ module.exports = {
     Auto,
     Model,
     Stamp,
+    Test,
     Order,
     OrderActivity,
     OrderAutopart
