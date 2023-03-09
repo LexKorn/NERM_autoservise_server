@@ -16,6 +16,11 @@ const Auto = sequelize.define('auto', {
     phone: {type: DataTypes.STRING},
 });
 
+const Master = sequelize.define('master', {
+    id: {type: DataTypes.INTEGER, primaryKey: true, autoIncrement: true},
+    master: {type: DataTypes.STRING},
+});
+
 const Model = sequelize.define('model', {
     id: {type: DataTypes.INTEGER, primaryKey: true, autoIncrement: true},
     model: {type: DataTypes.STRING},
@@ -59,6 +64,9 @@ const OrderAutopart = sequelize.define('order_autopart', {
 User.hasMany(Auto);
 Auto.belongsTo(User);
 
+User.hasMany(Master);
+Master.belongsTo(User);
+
 User.hasMany(Model);
 Model.belongsTo(User);
 
@@ -86,6 +94,9 @@ Auto.belongsTo(Stamp);
 Auto.hasMany(Order);
 Order.belongsTo(Auto);
 
+Master.hasMany(Order);
+Order.belongsTo(Master);
+
 Order.hasMany(OrderActivity, {as: 'activity'});
 OrderActivity.belongsTo(Order);
 
@@ -96,6 +107,7 @@ OrderAutopart.belongsTo(Order);
 module.exports = {
     User,
     Auto,
+    Master,
     Model,
     Stamp,
     Test,

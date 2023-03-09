@@ -5,9 +5,9 @@ class OrdersController {
     async create(req, res, next) {
         try {
             const {id} = req.user;
-            let {opened, closed, cost, income, profit, comment, autoId} = req.body;
+            let {opened, closed, cost, income, profit, comment, autoId, masterId} = req.body;
 
-            const order = await Order.create({opened, closed, cost, income, profit, comment, autoId, userId: id});
+            const order = await Order.create({opened, closed, cost, income, profit, comment, autoId, masterId, userId: id});
             return res.json(order);
 
         } catch(err) {
