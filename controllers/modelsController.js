@@ -8,7 +8,7 @@ class ModelsController {
             const {model} = req.body;
             const candidate = await Model.findOne({where: {userId: id, model}});
             if (candidate) {
-                return next(ApiError.badRequest('Такая марка авто уже существует!'));
+                return next(ApiError.badRequest('Такая модель авто уже существует!'));
             }
 
             const modelX = await Model.create({userId: id, model});

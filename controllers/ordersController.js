@@ -40,9 +40,9 @@ class OrdersController {
     async update(req, res, next) {
         try {
             const {id} = req.params;
-            const {opened, closed, cost, income, profit, comment} = req.body;
+            const {opened, closed, cost, income, profit, comment, masterId} = req.body;
 
-            await Order.update({opened, closed, cost, income, profit, comment}, {where: {userId: req.user.id, id}});
+            await Order.update({opened, closed, cost, income, profit, comment, masterId}, {where: {userId: req.user.id, id}});
             return res.json('Order was updated..');
 
         } catch(err) {
