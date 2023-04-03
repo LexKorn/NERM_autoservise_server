@@ -42,9 +42,7 @@ const Order = sequelize.define('order', {
     id: {type: DataTypes.INTEGER, primaryKey: true, autoIncrement: true},
     opened: {type: DataTypes.STRING},
     closed: {type: DataTypes.STRING, allowNull: true},
-    cost: {type: DataTypes.INTEGER, allowNull: true},
     income: {type: DataTypes.INTEGER, allowNull: true},
-    profit: {type: DataTypes.INTEGER, allowNull: true},
     comment: {type: DataTypes.STRING, allowNull: true},
 });
 

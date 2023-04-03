@@ -5,9 +5,9 @@ class OrdersController {
     async create(req, res, next) {
         try {
             const {id} = req.user;
-            let {opened, closed, cost, income, profit, comment, autoId, masterId} = req.body;
+            let {opened, closed, income, comment, autoId, masterId} = req.body;
 
-            const order = await Order.create({opened, closed, cost, income, profit, comment, autoId, masterId, userId: id});
+            const order = await Order.create({opened, closed, income, comment, autoId, masterId, userId: id});
             return res.json(order);
 
         } catch(err) {
@@ -40,9 +40,9 @@ class OrdersController {
     async update(req, res, next) {
         try {
             const {id} = req.params;
-            const {opened, closed, cost, income, profit, comment, masterId} = req.body;
+            const {opened, closed, income, comment, masterId} = req.body;
 
-            await Order.update({opened, closed, cost, income, profit, comment, masterId}, {where: {userId: req.user.id, id}});
+            await Order.update({opened, closed, income, comment, masterId}, {where: {userId: req.user.id, id}});
             return res.json('Order was updated..');
 
         } catch(err) {
